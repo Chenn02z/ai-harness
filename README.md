@@ -32,8 +32,10 @@ Solo and indie developers who want:
 3. Accept a milestone in `docs/milestones/` when the work is large enough.
 4. Draft an implementation spec with `$spec`.
 5. Pressure-test the spec before implementation.
-6. Implement through `$dev-loop`.
-7. Verify through `$test`.
+6. Implement through `$dev-loop`, which includes verification by delegating to
+   `$test`.
+7. Invoke `$test` directly for standalone or ad hoc verification when you do
+   not need the full dev loop.
 8. Realign docs, skills, and agent rules through `$context` when decisions settle.
 
 ## Repository Layout
