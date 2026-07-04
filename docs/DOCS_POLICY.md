@@ -5,6 +5,8 @@ This document defines where durable project information belongs.
 ## Canonical Destinations
 
 - `README.md`: public overview.
+- `user-journeys.html`: human-facing map of first-run paths and current product
+  capabilities.
 - `docs/PRODUCT.md`: product intent, audience, scope, principles, and roadmap.
 - `docs/CONTEXT.md`: canonical terminology and workflow boundaries.
 - `docs/WORKFLOWS.md`: skill workflow rules and handoff expectations.
@@ -56,6 +58,10 @@ Keep implementation details out of `docs/CONTEXT.md`. Put executable behavior
 in specs, product direction in `docs/PRODUCT.md`, and operating workflow detail
 in `docs/WORKFLOWS.md`.
 
+For downstream forks, keep the harness-wide operating contract in `AGENTS.md`
+and add project-local commands, constraints, and environment notes surgically
+rather than replacing the whole file by default.
+
 ## Documentation Changes
 
 - Keep changes surgical and tied to the current spec or explicit task.
@@ -63,4 +69,3 @@ in `docs/WORKFLOWS.md`.
 - Do not batch unrelated terminology changes.
 - Preserve handoff artifacts when one skill expects another skill to continue.
 - Report missing commands or missing tooling as repo maturity gaps.
-

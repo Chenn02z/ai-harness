@@ -12,6 +12,7 @@ not inside its core rules.
 
 ## Current Scope
 
+- first-run bootstrap onboarding for a newly forked product repo
 - repo operating instructions and workflow skills
 - milestone and spec structure
 - Codex agent presets for planning, grilling, exploration, implementation,
@@ -29,6 +30,8 @@ not inside its core rules.
 
 ## Product Principles
 
+- **Start by interrogating the product**: a fresh fork should not proceed on
+  vague direction; bootstrap should force a usable product backbone first.
 - **Specs define truth**: implementation traces to accepted requirements.
 - **Skills define process**: repeatable workflows live in `.agents/skills/`.
 - **Agents execute roles**: model, reasoning, and permission presets live in
@@ -43,6 +46,8 @@ not inside its core rules.
 
 ## Success Criteria
 
+- a fresh fork can be turned into product-specific docs and an initial
+  milestone through a structured grilling session
 - vague requests become clear milestones or specs
 - specs are grilled before implementation
 - implementation follows a consistent explorer -> implementer -> verifier ->
@@ -52,10 +57,11 @@ not inside its core rules.
 
 ## Roadmap Backbone
 
-1. Operating contract: `AGENTS.md`.
-2. Workflow foundation: requirements, spec, dev-loop, context, and test skills.
-3. Agent foundation: role/model/permission presets under `.codex/agents/`.
-4. Template foundation: milestone and spec templates under `docs/`.
-5. Domain adoption: each downstream product adds its own accepted milestones,
+1. First-run adoption: `$bootstrap` converts the template into a product
+   backbone with durable docs and a first milestone seed.
+2. Operating contract: `AGENTS.md`.
+3. Workflow foundation: requirements, spec, dev-loop, context, and test skills.
+4. Agent foundation: role/model/permission presets under `.codex/agents/`.
+5. Template foundation: milestone and spec templates under `docs/`.
+6. Domain adoption: each downstream product adds its own accepted milestones,
    specs, code, and docs without changing the shared harness by default.
-

@@ -51,14 +51,15 @@ judgment, delegation, reconciliation, reporting, and user interaction only.
 Any non-trivial work should produce a trace via `$codex-agent-tracer` under
 `.agent-trace/<workflow-id>/`. The full routing trace includes:
 
-1. Gather requirements.
-2. Draft or update an Accepted milestone when the work is milestone-sized.
-3. Create or update a spec from an Accepted milestone.
-4. Review the spec for ambiguity and failure modes.
-5. Mark the spec Accepted before implementation.
-6. Implement only what the spec requires.
-7. Verify against the spec.
-8. Update docs and context when decisions settle.
+1. Bootstrap a fresh fork into a product-specific workspace.
+2. Gather requirements.
+3. Draft or update an Accepted milestone when the work is milestone-sized.
+4. Create or update a spec from an Accepted milestone.
+5. Review the spec for ambiguity and failure modes.
+6. Mark the spec Accepted before implementation.
+7. Implement only what the spec requires.
+8. Verify against the spec.
+9. Update docs and context when decisions settle.
 
 Small local documentation or cleanup tasks may skip a formal spec only when the
 user explicitly allows it or the change is obviously reversible.
@@ -86,6 +87,8 @@ Silent manual substitution for a required subagent is a workflow violation.
 All project workflow skills may produce a `.agent-trace/` folder. The trace is
 the canonical evidence log backing the handoff artifact.
 
+- `$bootstrap`: interrogate a fresh fork until product direction is coherent,
+  then populate the backbone docs and first milestone.
 - `$requirements`: gather requirements and produce Accepted milestones.
 - `$spec`: turn Accepted milestones into formal specs.
 - `$dev-loop`: implement from an Accepted spec through verification.
@@ -141,6 +144,11 @@ reporting.
 Document project-specific setup and verification commands in this file once the
 repo has them. Until then, report missing commands as a repo maturity gap.
 
+For downstream forks, `$bootstrap` should be the first serious workflow. It
+owns adding project-local command, constraint, and environment notes once they
+are known. Preserve the harness contract above unless the downstream project
+intentionally changes the operating model.
+
 ## Definition Of Done
 
 A task is done when:
@@ -150,4 +158,3 @@ A task is done when:
 3. Verification was run, or the missing command/reason is reported.
 4. Docs/spec status are updated when a decision settles.
 5. Remaining risks or follow-up specs are named plainly.
-

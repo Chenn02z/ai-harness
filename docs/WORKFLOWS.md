@@ -15,17 +15,24 @@ Workflow skills leave explicit handoff artifacts for the next skill.
 Use the full workflow for non-trivial product, code, workflow, or context
 changes:
 
-1. Gather requirements.
-2. Draft or update an Accepted milestone when the work is milestone-sized.
-3. Create or update specs from Accepted milestones.
-4. Grill the spec for ambiguity and missing failure modes.
-5. Mark the spec Accepted before implementation.
-6. Implement only what the spec requires.
-7. Verify and review against the spec.
-8. Update docs and spec status when decisions settle.
+1. Bootstrap the workspace when the fork still reflects the harness template.
+2. Gather requirements.
+3. Draft or update an Accepted milestone when the work is milestone-sized.
+4. Create or update specs from Accepted milestones.
+5. Grill the spec for ambiguity and missing failure modes.
+6. Mark the spec Accepted before implementation.
+7. Implement only what the spec requires.
+8. Verify and review against the spec.
+9. Update docs and spec status when decisions settle.
 
 Small documentation or cleanup tasks may skip a formal spec when the user makes
 that explicit or when the change is obviously local and reversible.
+
+## Bootstrap Rule
+
+Use `$bootstrap` when a newly forked repo still carries harness-template
+product language or has no coherent product backbone yet. Bootstrap may leave a
+Draft onboarding packet if blocking product questions remain unresolved.
 
 ## Handoff Artifact Interface
 
@@ -80,4 +87,3 @@ Do not leave a spec header at `Implemented` while a handoff still says
 
 When a spec is ready for implementation, `spec` should leave an explicit
 handoff for `dev-loop` using the shared handoff artifact interface.
-

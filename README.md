@@ -9,6 +9,7 @@ multi-agent development loop instead of one giant prompt. It gives you:
 - reusable workflow skills under `.agents/skills/`
 - reusable agent presets under `.codex/agents/`
 - docs and templates for milestones, specs, handoffs, and context alignment
+- a first-run bootstrap path for turning the template into a real product repo
 
 This repo is the harness, not your product runtime. Bring your own app, domain,
 and codebase. The harness exists to keep planning, implementation, review, and
@@ -25,19 +26,22 @@ Solo and indie developers who want:
 
 ## Workflow Backbone
 
-1. Shape the request with `$requirements`.
-2. Accept a milestone in `docs/milestones/` when the work is large enough.
-3. Draft an implementation spec with `$spec`.
-4. Pressure-test the spec before implementation.
-5. Implement through `$dev-loop`.
-6. Verify through `$test`.
-7. Realign docs, skills, and agent rules through `$context` when decisions settle.
+1. Run `$bootstrap` immediately after forking to interrogate product direction
+   and rewrite the template docs into a real project backbone.
+2. Shape the request with `$requirements`.
+3. Accept a milestone in `docs/milestones/` when the work is large enough.
+4. Draft an implementation spec with `$spec`.
+5. Pressure-test the spec before implementation.
+6. Implement through `$dev-loop`.
+7. Verify through `$test`.
+8. Realign docs, skills, and agent rules through `$context` when decisions settle.
 
 ## Repository Layout
 
 ```text
 .
 ├── AGENTS.md
+├── user-journeys.html
 ├── .agents/skills/
 ├── .codex/agents/
 └── docs/
@@ -55,11 +59,14 @@ Solo and indie developers who want:
 ## How To Use
 
 1. Start from this repo as a template.
-2. Rewrite `docs/PRODUCT.md` for your actual product.
-3. Adjust `docs/CONTEXT.md` only where your product introduces durable terms.
-4. Keep the workflow docs and agent presets strict unless you intentionally
+2. Run `$bootstrap` as the first real task after the fork.
+3. Answer the grilling session until `docs/PRODUCT.md`, `docs/CONTEXT.md`,
+   project-local `AGENTS.md` details, and the first milestone are coherent.
+4. Use `user-journeys.html` at the repo root as the visual map of what the
+   harness supports and what the intended developer paths are.
+5. Keep the workflow docs and agent presets strict unless you intentionally
    change the harness rules.
-5. Add your application code beside this harness structure.
+6. Add your application code beside this harness structure.
 
 ## Non-Goals
 

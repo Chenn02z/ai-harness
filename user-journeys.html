@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Harness User Journeys</title>
+  <style>
+    :root {
+      --bg: #f3ede2;
+      --panel: rgba(255, 249, 240, 0.88);
+      --panel-strong: #fffaf3;
+      --ink: #162033;
+      --muted: #556173;
+      --line: rgba(22, 32, 51, 0.12);
+      --accent: #d95d39;
+      --accent-2: #157a6e;
+      --accent-3: #d9a441;
+      --shadow: 0 24px 70px rgba(22, 32, 51, 0.12);
+      --radius: 26px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(217, 93, 57, 0.16), transparent 30%),
+        radial-gradient(circle at top right, rgba(21, 122, 110, 0.12), transparent 26%),
+        linear-gradient(180deg, #f7f1e6 0%, #efe3d2 100%);
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 32px 0 64px;
+    }
+
+    .hero,
+    .panel {
+      background: var(--panel);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 36px;
+      margin-bottom: 22px;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -90px -120px auto;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(217, 93, 57, 0.32), rgba(21, 122, 110, 0.18));
+      filter: blur(8px);
+    }
+
+    .eyebrow,
+    .chip,
+    .status,
+    .stage {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+    }
+
+    .eyebrow,
+    .chip {
+      padding: 8px 12px;
+      background: rgba(22, 32, 51, 0.06);
+      color: var(--muted);
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      line-height: 1.04;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4.8rem);
+      max-width: 11ch;
+      margin-top: 16px;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 14px;
+    }
+
+    h3 {
+      font-size: 1.08rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.62;
+      font-size: 1rem;
+    }
+
+    code {
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 0.92em;
+      background: rgba(22, 32, 51, 0.06);
+      border-radius: 6px;
+      padding: 2px 6px;
+      color: var(--ink);
+    }
+
+    .hero-grid,
+    .journey-grid,
+    .capability-grid,
+    .artifact-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .hero-grid {
+      grid-template-columns: 1.25fr 0.85fr;
+      align-items: end;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-copy p {
+      max-width: 64ch;
+      margin-top: 18px;
+      font-size: 1.04rem;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 12px;
+      justify-items: end;
+    }
+
+    .score {
+      width: min(100%, 320px);
+      padding: 22px;
+      border-radius: 22px;
+      background: rgba(255, 250, 243, 0.94);
+      border: 1px solid rgba(22, 32, 51, 0.08);
+    }
+
+    .score strong {
+      display: block;
+      font-size: 2.8rem;
+    }
+
+    .score span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .layout {
+      display: grid;
+      gap: 22px;
+    }
+
+    .panel {
+      padding: 24px;
+    }
+
+    .journey-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .journey,
+    .capability,
+    .artifact {
+      padding: 22px;
+      border-radius: 22px;
+      background: var(--panel-strong);
+      border: 1px solid var(--line);
+    }
+
+    .journey {
+      display: grid;
+      gap: 14px;
+    }
+
+    .journey-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 14px;
+    }
+
+    .status {
+      padding: 8px 10px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .status-ready {
+      color: #0f5b4b;
+      background: rgba(21, 122, 110, 0.14);
+    }
+
+    .status-growing {
+      color: #8b5a00;
+      background: rgba(217, 164, 65, 0.18);
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    .callout {
+      margin-top: 14px;
+      padding-left: 16px;
+      border-left: 4px solid var(--accent);
+    }
+
+    .capability-grid,
+    .artifact-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .stage {
+      margin-bottom: 10px;
+      padding: 6px 10px;
+      background: rgba(22, 32, 51, 0.06);
+      color: var(--ink);
+    }
+
+    .footer {
+      margin-top: 22px;
+      padding: 20px 24px;
+      border-radius: 22px;
+      background: rgba(22, 32, 51, 0.9);
+      color: #f8f1e6;
+    }
+
+    .footer p {
+      color: rgba(248, 241, 230, 0.78);
+    }
+
+    a {
+      color: inherit;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .journey-grid,
+      .capability-grid,
+      .artifact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-side {
+        justify-items: start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">User Journey Map</span>
+          <h1>AI Harness now starts with product interrogation, not wishful setup.</h1>
+          <p>
+            This page is the maintained visual map of what an indie developer can do with the
+            harness and which path should happen first. The intended first move after a fork is
+            <code>$bootstrap</code>: grill the founder, replace the template product backbone, and
+            leave the repo in a state where normal milestones and specs are worth writing.
+          </p>
+        </div>
+        <div class="hero-side">
+          <div class="score">
+            <span>Current first-run expectation</span>
+            <strong>Fork -&gt; $bootstrap</strong>
+            <span>Product direction gets challenged before the repo pretends to be ready for requirements or implementation.</span>
+          </div>
+        </div>
+      </div>
+      <div class="meta">
+        <span class="chip">Audience: indie developers using Codex</span>
+        <span class="chip">Canonical docs: <code>README.md</code>, <code>AGENTS.md</code>, <code>docs/</code></span>
+        <span class="chip">Internal evaluation source: <code>.agent-trace/grill-with-docs-v1-product-eval-20260704-221857/</code></span>
+      </div>
+    </section>
+
+    <div class="layout">
+      <section class="panel">
+        <h2>Primary Journeys</h2>
+        <div class="journey-grid">
+          <article class="journey">
+            <div class="journey-head">
+              <div>
+                <h3>1. Bootstrap a fresh fork into a real product workspace</h3>
+                <p>The developer has copied the harness but has not yet clarified what they are actually building.</p>
+              </div>
+              <span class="status status-ready">Ready</span>
+            </div>
+            <ul>
+              <li>Start with <code>$bootstrap</code>.</li>
+              <li>Keep asking until target user, pain, outcome, first surface, launch slice, non-goals, and constraints are concrete enough to write down.</li>
+              <li>Populate <code>docs/PRODUCT.md</code>, <code>docs/CONTEXT.md</code>, project-local <code>AGENTS.md</code> details, and an initial milestone when appropriate.</li>
+            </ul>
+          </article>
+
+          <article class="journey">
+            <div class="journey-head">
+              <div>
+                <h3>2. Turn vague work into an Accepted milestone</h3>
+                <p>The developer has product direction, but a feature or initiative still needs shape and scope discipline.</p>
+              </div>
+              <span class="status status-ready">Ready</span>
+            </div>
+            <ul>
+              <li>Use <code>$requirements</code> for milestone framing and blocker resolution.</li>
+              <li>Use <code>$grill-with-docs</code> when terminology or scope starts drifting.</li>
+              <li>Do not mark the milestone Accepted while blocking questions remain.</li>
+            </ul>
+          </article>
+
+          <article class="journey">
+            <div class="journey-head">
+              <div>
+                <h3>3. Convert an Accepted milestone into an executable spec</h3>
+                <p>The developer wants a contract precise enough that implementation can be judged, not merely narrated.</p>
+              </div>
+              <span class="status status-ready">Ready</span>
+            </div>
+            <ul>
+              <li>Use <code>$spec</code> only from an Accepted milestone.</li>
+              <li>Keep failure modes, acceptance criteria, and verification explicit.</li>
+              <li>Hand the spec to <code>$dev-loop</code> only after the spec itself is Accepted.</li>
+            </ul>
+          </article>
+
+          <article class="journey">
+            <div class="journey-head">
+              <div>
+                <h3>4. Ship through the multi-agent development loop</h3>
+                <p>The developer wants disciplined exploration, editing, testing, and review instead of one broad prompt.</p>
+              </div>
+              <span class="status status-growing">Growing</span>
+            </div>
+            <ul>
+              <li>Use <code>$dev-loop</code> for implementation, <code>$test</code> for scoped verification, and <code>reviewer</code> feedback before calling the work done.</li>
+              <li>Keep the main agent as coordinator and reconciler, not the silent do-everything worker.</li>
+              <li>Missing project-specific commands should be documented as maturity gaps, not hidden.</li>
+            </ul>
+          </article>
+
+          <article class="journey">
+            <div class="journey-head">
+              <div>
+                <h3>5. Keep docs, skills, and agents aligned as the project evolves</h3>
+                <p>The developer needs durable terminology and workflow updates after real decisions settle.</p>
+              </div>
+              <span class="status status-ready">Ready</span>
+            </div>
+            <ul>
+              <li>Use <code>$context</code> when product direction, workflow boundaries, or role definitions change.</li>
+              <li>Prefer surgical doc updates over sprawling rewrites.</li>
+              <li>Keep implementation details out of <code>docs/CONTEXT.md</code>.</li>
+            </ul>
+          </article>
+
+          <article class="journey">
+            <div class="journey-head">
+              <div>
+                <h3>6. Audit what happened and show evidence</h3>
+                <p>The developer wants proof of process, not only final prose summaries.</p>
+              </div>
+              <span class="status status-growing">Growing</span>
+            </div>
+            <ul>
+              <li>Use <code>$codex-agent-tracer</code> for non-trivial work.</li>
+              <li>Treat <code>.agent-trace/</code> as local evidence and durable handoffs as the compact summary.</li>
+              <li>Use review artifacts like the product evaluation HTML to improve the next product-facing path.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>What Users Can Do</h2>
+        <div class="capability-grid">
+          <article class="capability">
+            <span class="stage">Founding</span>
+            <h3>Interrogate a product idea</h3>
+            <p>Use <code>$bootstrap</code> to force a founder-quality answer set before normal planning begins.</p>
+          </article>
+          <article class="capability">
+            <span class="stage">Planning</span>
+            <h3>Create durable milestone contracts</h3>
+            <p>Use <code>$requirements</code> to turn fuzzy goals into scoped milestones with blockers and acceptance criteria candidates.</p>
+          </article>
+          <article class="capability">
+            <span class="stage">Specification</span>
+            <h3>Write implementation-grade specs</h3>
+            <p>Use <code>$spec</code> to convert Accepted milestones into executable contracts for development.</p>
+          </article>
+          <article class="capability">
+            <span class="stage">Implementation</span>
+            <h3>Run a role-separated dev loop</h3>
+            <p>Use <code>$dev-loop</code> plus the project agents to explore, edit, verify, and review with explicit ownership.</p>
+          </article>
+          <article class="capability">
+            <span class="stage">Governance</span>
+            <h3>Pressure-test plans and terminology</h3>
+            <p>Use <code>$grill-with-docs</code> when ambiguity, scope creep, or naming drift threatens trust in the docs.</p>
+          </article>
+          <article class="capability">
+            <span class="stage">Alignment</span>
+            <h3>Keep context synchronized</h3>
+            <p>Use <code>$context</code> to keep docs, skills, and agent rules coherent after decisions settle.</p>
+          </article>
+        </div>
+        <p class="callout">
+          The harness is strongest when it is used as a strict workflow spine, not as a replacement for the actual product codebase.
+        </p>
+      </section>
+
+      <section class="panel">
+        <h2>Key Artifacts</h2>
+        <div class="artifact-grid">
+          <article class="artifact">
+            <h3>Startup contract</h3>
+            <p><code>AGENTS.md</code> defines non-negotiable operating rules and is where project-specific command gaps should be recorded.</p>
+          </article>
+          <article class="artifact">
+            <h3>Product backbone</h3>
+            <p><code>docs/PRODUCT.md</code> and <code>docs/CONTEXT.md</code> become product-specific during bootstrap and stay durable afterward.</p>
+          </article>
+          <article class="artifact">
+            <h3>Execution evidence</h3>
+            <p><code>.agent-trace/</code> holds local traces, while specs, milestones, and reviews preserve the durable summary.</p>
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <section class="footer">
+      <h2>Maintenance Note</h2>
+      <p>
+        Keep this file updated when the repo gains a new user-facing workflow, when a current journey changes its first step,
+        or when the capability surface moves enough that the visible product story should change with it.
+      </p>
+    </section>
+  </main>
+</body>
+</html>

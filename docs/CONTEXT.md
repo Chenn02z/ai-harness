@@ -25,6 +25,9 @@ Canonical terminology and workflow boundaries. Keep implementation details out.
 - `milestone`: larger deliverable slice under `docs/milestones/`.
 - `requirement gathering`: vague intent to requirements packet or Accepted
   milestone.
+- `bootstrap`: first-run workflow that interrogates the developer, replaces the
+  template product backbone, and leaves either a Draft onboarding packet or a
+  product-ready starting point for normal planning work.
 - `spec grilling`: adversarial review before implementation.
 - `dev loop`: Accepted spec to verified, reviewed diff.
 - `context maintenance`: keeping docs, specs, skills, and agents aligned after
@@ -41,6 +44,10 @@ Canonical terminology and workflow boundaries. Keep implementation details out.
 
 ## Workflow Boundaries
 
+- Bootstrap: first serious workflow after forking when the repo still reflects
+  the harness template. It may rewrite product docs, add project-local
+  `AGENTS.md` details, and create the first milestone seed. It does not bypass
+  Draft versus Accepted status rules.
 - Requirements: produces milestone contracts and requirements packets. Does
   not write specs or implement code.
 - Specs: produces executable contracts under `docs/specs/` from Accepted
@@ -70,4 +77,3 @@ Draft milestones with resolved dependencies follow.
 ## Open Questions
 
 - What trace retention policy is appropriate for this repo?
-
