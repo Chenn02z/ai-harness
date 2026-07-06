@@ -8,6 +8,10 @@ description: Keeps repo context aligned across AGENTS.md, README, durable docs, 
 Use when settled work changes terminology, workflow boundaries, product
 direction, role definitions, or agent and skill usage.
 
+Auto-triggered by `AGENTS.md` after any milestone is marked completed, any
+spec is marked Verified, any architecture seam is opened or closed, or any
+settled terminology decision emerges from a workflow.
+
 ## Prerequisites
 
 1. `AGENTS.md` (one-time orientation)
@@ -16,7 +20,9 @@ direction, role definitions, or agent and skill usage.
 ## Canonical Files
 
 - `README.md`, `AGENTS.md`
+- `user-journeys.html`
 - `docs/PRODUCT.md`, `docs/CONTEXT.md`
+- `docs/ARCHITECTURE.md`
 - `docs/WORKFLOWS.md`
 - `docs/AGENT_ROLES.md`, `docs/DOCS_POLICY.md`
 - `docs/specs/`, `docs/milestones/`
@@ -25,8 +31,12 @@ direction, role definitions, or agent and skill usage.
 ## Workflow
 
 1. Start `$codex-agent-tracer` before substantial work.
-2. Use `explorer` to inspect current docs and skills.
-3. Use `doc-curator` for surgical updates to context docs and skill or agent rules.
+2. Use `explorer` to inspect current docs, skills, and `user-journeys.html`.
+3. Use `doc-curator` for surgical updates to context docs, `README.md`,
+   `user-journeys.html`, `docs/ARCHITECTURE.md`, and skill or agent rules.
+   When architecture seams are opened or closed, update
+   `docs/ARCHITECTURE.md` accordingly. When workflow paths or skill names
+   change, update `user-journeys.html` to reflect the current journey map.
 4. Apply a pruning audit across skills and agents:
    - skills should avoid duplicated terminology and should reference canonical docs
    - agent instructions should avoid unnecessary full-doc-stack pre-reads
@@ -40,6 +50,5 @@ direction, role definitions, or agent and skill usage.
 
 Return a handoff artifact using the shared interface in `docs/WORKFLOWS.md`.
 Include changed docs, settled terms and decisions, removed contradictions,
-trace path, before and after size summary when pruning occurred, and any
-follow-up updates needed.
-
+architecture seams opened or closed, trace path, before and after size summary
+when pruning occurred, and any follow-up updates needed.

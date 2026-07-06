@@ -10,6 +10,20 @@ are capacity decisions.
 
 Workflow skills leave explicit handoff artifacts for the next skill.
 
+## Incremental Delivery Model
+
+The harness supports phase-based incremental delivery:
+
+1. `$bootstrap` establishes the MVP boundary, derives architecture seams, and
+   builds an MVP milestone ladder.
+2. Milestones are shaped and accepted through `$requirements`, then turned
+   into specs and implemented through `$spec` and `$dev-loop`.
+3. When a phase is complete, the developer manually triggers `plan-next` to
+   propose the next phase's Draft milestones based on what shipped.
+4. `$context` auto-triggers after settled decisions to keep docs, terminology,
+   and architecture aligned.
+5. Repeat.
+
 ## Non-Trivial Work
 
 Use the full workflow for non-trivial product, code, workflow, or context
@@ -21,9 +35,10 @@ changes:
 4. Create or update specs from Accepted milestones.
 5. Grill the spec for ambiguity and missing failure modes.
 6. Mark the spec Accepted before implementation.
-7. Implement only what the spec requires.
+7. Implement only what the spec requires, respecting architecture seams.
 8. Verify and review against the spec.
-9. Update docs and spec status when decisions settle.
+9. When a phase ships, run `plan-next` to propose the next increment.
+10. Update docs and spec status when decisions settle.
 
 Small documentation or cleanup tasks may skip a formal spec when the user makes
 that explicit or when the change is obviously local and reversible.
@@ -31,8 +46,23 @@ that explicit or when the change is obviously local and reversible.
 ## Bootstrap Rule
 
 Use `$bootstrap` when a newly forked repo still carries harness-template
-product language or has no coherent product backbone yet. Bootstrap may leave a
-Draft onboarding packet if blocking product questions remain unresolved.
+product language or has no coherent product backbone yet. Bootstrap establishes
+the MVP boundary, derives architecture seams, builds the MVP milestone ladder,
+and seeds bare future milestones. It may leave a Draft onboarding packet if
+blocking product questions remain unresolved.
+
+Do NOT attempt to fully design the whole product during bootstrap. Bare future
+milestones are intentionally sparse directional hints.
+
+## Plan-Next Rule
+
+Use `plan-next` manually when a phase is complete (all its milestones are
+shipped). Plan-next reads completed milestones, product direction, architecture
+seams, and bare future milestones to propose the next phase. It produces Draft
+milestones only — `$requirements` owns acceptance.
+
+The main agent should suggest running `plan-next` when a phase boundary is
+reached, but does not auto-trigger it.
 
 ## Handoff Artifact Interface
 

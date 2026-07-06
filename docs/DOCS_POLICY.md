@@ -8,6 +8,9 @@ This document defines where durable project information belongs.
 - `user-journeys.html`: human-facing map of first-run paths and current product
   capabilities.
 - `docs/PRODUCT.md`: product intent, audience, scope, principles, and roadmap.
+- `docs/ARCHITECTURE.md`: current code structure, approved seams, and deferred
+  architecture. Seeded by bootstrap, updated by context. Lightweight — no
+  speculative blueprints or unused frameworks.
 - `docs/CONTEXT.md`: canonical terminology and workflow boundaries.
 - `docs/WORKFLOWS.md`: skill workflow rules and handoff expectations.
 - `docs/AGENT_ROLES.md`: subagent roles, edit permissions, and routing
@@ -52,11 +55,12 @@ small reversible documentation changes.
 ## Context Maintenance
 
 Use `context` to update docs when a term, boundary, workflow, product decision,
-role definition, or agent/skill usage becomes settled.
+role definition, or agent/skill usage becomes settled. Context is auto-triggered
+by AGENTS.md after settled decisions and may also be invoked by skill handoffs.
 
 Keep implementation details out of `docs/CONTEXT.md`. Put executable behavior
-in specs, product direction in `docs/PRODUCT.md`, and operating workflow detail
-in `docs/WORKFLOWS.md`.
+in specs, product direction in `docs/PRODUCT.md`, architecture in
+`docs/ARCHITECTURE.md`, and operating workflow detail in `docs/WORKFLOWS.md`.
 
 For downstream forks, keep the harness-wide operating contract in `AGENTS.md`
 and add project-local commands, constraints, and environment notes surgically

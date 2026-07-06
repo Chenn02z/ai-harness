@@ -12,6 +12,11 @@ State the user-visible or developer-visible outcome.
 
 Give one concrete request or workflow that should work when this spec is done.
 
+## Architecture Reference
+
+Link to `docs/ARCHITECTURE.md` and note which approved seams or deferred
+entries this spec touches.
+
 ## In Scope
 
 - What this spec covers.
@@ -19,6 +24,12 @@ Give one concrete request or workflow that should work when this spec is done.
 ## Out Of Scope
 
 - What this spec intentionally does not cover.
+
+## Architecture Seams
+
+Specific boundaries from `docs/ARCHITECTURE.md` this spec must honor. What
+must be built to extend cleanly later within those seams — without overbuilding
+or adding speculative frameworks.
 
 ## Contracts
 
@@ -41,4 +52,3 @@ assumptions, stale context, or other expected failures.
 ## Open Questions
 
 - Decisions that must be resolved before implementation.
-

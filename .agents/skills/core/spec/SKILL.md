@@ -13,7 +13,8 @@ specs under `docs/specs/`. Consume Accepted milestone contracts from
 
 1. `AGENTS.md` (one-time orientation)
 2. `docs/WORKFLOWS.md` (handoff interface and spec status contract)
-3. The Accepted milestone under `docs/milestones/`
+3. `docs/ARCHITECTURE.md` (approved seams and deferred architecture)
+4. The Accepted milestone under `docs/milestones/`
 
 ## Spec Template
 
@@ -27,9 +28,13 @@ Draft
 
 ## Scenario
 
+## Architecture Reference
+
 ## In Scope
 
 ## Out Of Scope
+
+## Architecture Seams
 
 ## Contracts
 
@@ -46,23 +51,27 @@ Draft
 
 1. Start `$codex-agent-tracer` before substantial work.
 2. Use `explorer` if repo state is unclear. Confirm the milestone is `Accepted`.
-3. Use `spec-planner` to draft or revise specs from the Accepted milestone.
-4. For multi-spec milestones: name child spec paths and Draft or Accepted targets.
-5. Use `spec-griller` before marking any spec Accepted.
-6. Use `$grill-with-docs` when spec changes terminology, boundaries, or
+3. Reference `docs/ARCHITECTURE.md` to populate `## Architecture Reference`
+   and `## Architecture Seams` in each spec. Every spec must declare which
+   seams it touches and what it must honor.
+4. Use `spec-planner` to draft or revise specs from the Accepted milestone.
+5. For multi-spec milestones: name child spec paths and Draft or Accepted targets.
+6. Use `spec-griller` before marking any spec Accepted. The griller must
+   verify seam compliance against `docs/ARCHITECTURE.md`.
+7. Use `$grill-with-docs` when spec changes terminology, boundaries, or
    milestone direction.
-7. If code reveals the milestone is wrong, hand back to `$requirements`.
-8. If the spec settles context changes, hand off to `$context`.
-9. Leave an explicit handoff artifact for `$dev-loop` when ready.
+8. If code reveals the milestone is wrong, hand back to `$requirements`.
+9. If the spec settles context changes, hand off to `$context`.
+10. Leave an explicit handoff artifact for `$dev-loop` when ready.
 
 ## Required Agent Gates
 
 1. `spec-planner` must draft or revise the spec.
-2. `spec-griller` must review before Accepted.
+2. `spec-griller` must review before Accepted, including seam compliance.
 
 ## Output
 
 Return a handoff artifact. Include the source milestone path, created or
-revised spec path, key contracts and acceptance criteria, settled decisions,
-open questions, trace path, and verification expectations.
-
+revised spec path, architecture seams referenced, key contracts and acceptance
+criteria, settled decisions, open questions, trace path, and verification
+expectations.
