@@ -43,7 +43,7 @@ backbone before normal milestone and spec work begins.
 8. Delegate durable doc updates to `doc-curator`:
    - rewrite `docs/PRODUCT.md` for the real product
    - update `docs/CONTEXT.md` with durable terminology only
-   - add project-local commands and constraints to `AGENTS.md` when known
+   - add project-local commands and constraints to `docs/CONTEXT.md` when known
    - create or update the first milestone under `docs/milestones/` if the
      launch slice is large enough
 9. Hand the resulting workspace to `$requirements` when additional milestone
@@ -57,7 +57,7 @@ product serves, what pain it solves, what the first useful slice is, and which
 durable constraints the rest of the workflows must respect.
 
 Unknown setup or verification commands are not always blockers, but they must
-be written down in `AGENTS.md` as maturity gaps instead of silently ignored.
+be written down in `docs/CONTEXT.md` as maturity gaps instead of silently ignored.
 
 ## Output
 
