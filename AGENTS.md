@@ -18,12 +18,6 @@ Do not read source files when `explorer` exists. Do not edit files when
 When a skill says to use a subagent, invoke it, report it unavailable, or
 explain why not applicable. Silent substitution is a workflow violation.
 
-Behavioral guidelines to reduce common LLM coding mistakes. Merge with
-project-specific instructions as needed.
-
-Tradeoff: These guidelines bias toward caution over speed. For trivial tasks,
-use judgment.
-
 ### 1. Think Before Coding
 
 Don't assume. Don't hide confusion. Surface tradeoffs.
@@ -88,6 +82,12 @@ work") require constant clarification.
 These guidelines are working if: fewer unnecessary changes in diffs, fewer
 rewrites due to overcomplication, and clarifying questions come before
 implementation rather than after mistakes.
+
+### 5. Context Auto-Trigger
+
+After any milestone is completed, spec is marked Verified, architecture seam is opened or closed, or settled terminology decision is made, invoke $context.
+
+Do not wait for the developer to ask.
 
 ## Definition Of Done
 

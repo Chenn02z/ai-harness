@@ -15,7 +15,8 @@ backbone before normal milestone and spec work begins.
 2. `README.md` (workspace overview and first-run framing)
 3. `docs/WORKFLOWS.md` (handoff interface and status language)
 4. `docs/DOCS_POLICY.md` (durable destinations)
-5. Current `docs/PRODUCT.md` and `docs/CONTEXT.md` (template state to replace)
+5. Current `docs/PRODUCT.md`, `docs/CONTEXT.md`, and `docs/ARCHITECTURE.md`
+   (template state to replace)
 
 ## Workflow
 
@@ -33,31 +34,51 @@ backbone before normal milestone and spec work begins.
    - promised outcome
    - first platform or surface
    - monetization or business model assumption
-   - launch slice
    - explicit non-goals
    - hard constraints
    - success metric
    - command and environment expectations known so far
-7. If the answers are still fuzzy or contradictory, stop with a Draft onboarding
+7. **Determine the MVP boundary**: where does the MVP line sit? What must the
+   user experience end-to-end in the first deliverable, and what is explicitly
+   post-MVP? Use this boundary to decide how many milestones the MVP needs and
+   what architectural seams are required.
+8. **Derive architecture seams from the MVP boundary**: given what ships now
+   and what's deferred, what lightweight boundaries (interfaces, hooks, config
+   points) must exist so future features slot in without rewrites? Do NOT
+   build speculative frameworks or fully design the whole product.
+9. If the answers are still fuzzy or contradictory, stop with a Draft onboarding
    packet rather than pretending the product is ready.
-8. Delegate durable doc updates to `doc-curator`:
-   - rewrite `docs/PRODUCT.md` for the real product
-   - update `docs/CONTEXT.md` with durable terminology only
-   - add project-local commands and constraints to `docs/CONTEXT.md` when known
-   - create or update the first milestone under `docs/milestones/` if the
-     launch slice is large enough
-9. Hand the resulting workspace to `$requirements` when additional milestone
-   shaping is needed, or directly to `$spec` only when an Accepted milestone
-   already exists.
+10. Delegate durable doc updates to `doc-curator`:
+    - rewrite `docs/PRODUCT.md` for the real product
+    - seed `docs/ARCHITECTURE.md` with current structure and approved seams
+      derived from the MVP boundary
+    - update `docs/CONTEXT.md` with durable terminology only
+    - add project-local commands and constraints to `docs/CONTEXT.md` when known
+    - build the **MVP milestone ladder**: create as many Draft milestones as
+      the MVP needs, in delivery order, from first user-visible deliverable to
+      MVP-complete
+    - seed **bare future milestones** (post-MVP) under `docs/milestones/` —
+      title and one-line goal only. These are directional hints for
+      `plan-next`, not commitments
+11. Hand the resulting workspace to `$requirements` when additional milestone
+    shaping is needed, or directly to `$spec` only when an Accepted milestone
+    already exists.
 
 ## Blocking Questions
 
-Bootstrap is blocked until the repo can answer, from docs or the user, who the
-product serves, what pain it solves, what the first useful slice is, and which
-durable constraints the rest of the workflows must respect.
+Bootstrap is blocked until the repo can answer, from docs or the user:
+
+- who the product serves
+- what pain it solves
+- **where the MVP line lives** — what must the user experience end-to-end,
+  and what is definitely post-MVP?
+- which durable constraints the rest of the workflows must respect
 
 Unknown setup or verification commands are not always blockers, but they must
 be written down in `docs/CONTEXT.md` as maturity gaps instead of silently ignored.
+
+Do NOT attempt to fully design the whole product. The MVP milestone ladder is
+the concrete deliverable path; bare future milestones are intentionally sparse.
 
 ## Output
 
@@ -65,9 +86,11 @@ Return a handoff artifact using the shared interface in `docs/WORKFLOWS.md`.
 Include:
 
 - onboarding status (`Draft` or `Accepted`)
-- changed doc paths
+- changed doc paths (including `docs/ARCHITECTURE.md`)
+- the MVP boundary and derived architecture seams
 - settled product decisions
 - unresolved blockers
-- initial milestone path if one was created
+- MVP milestone ladder paths and statuses
+- bare future milestone paths
 - trace path
 - agent routing log, including any manual fallbacks

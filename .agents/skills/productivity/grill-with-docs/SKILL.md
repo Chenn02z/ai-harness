@@ -1,6 +1,6 @@
 ---
 name: grill-with-docs
-description: Pressure-test workspace plans, specs, milestones, and terminology against README, AGENTS.md, product docs, context docs, and current repo state.
+description: Pressure-test workspace plans, specs, milestones, and terminology against README, AGENTS.md, product docs, context docs, architecture doc, and current repo state.
 ---
 
 # Grill With Docs
@@ -11,8 +11,8 @@ pressure-testing against the repo's documented intent and current files.
 Prefer `$spec` for writing specs and `$requirements` for shaping vague ideas.
 Use this skill as a focused adversarial review pass.
 
-This is a support skill, not the owner of a workflow. `requirements`, `spec`,
-and `context` may use it to challenge proposed requirements packets, formal
+This is a support skill, not the owner of a workflow. `$requirements`, `$spec`,
+and `$context` may use it to challenge proposed requirements packets, formal
 specs, milestone changes, and context updates against the repo's documented
 boundaries.
 
@@ -22,9 +22,10 @@ boundaries.
 2. `README.md`
 3. `docs/PRODUCT.md`
 4. `docs/CONTEXT.md`
-5. `docs/WORKFLOWS.md`
-6. Relevant files under `docs/specs/` or `docs/milestones/`
-7. Touched code or skill files, if any
+5. `docs/ARCHITECTURE.md`
+6. `docs/WORKFLOWS.md`
+7. Relevant files under `docs/specs/` or `docs/milestones/`
+8. Touched code or skill files, if any
 
 ## Workflow
 
@@ -42,6 +43,7 @@ boundaries.
 
 - `docs/CONTEXT.md` for canonical terminology and workflow boundaries
 - `docs/PRODUCT.md` for product intent, scope, and roadmap
+- `docs/ARCHITECTURE.md` for approved seams and deferred architecture
 - `docs/WORKFLOWS.md` for workflow rules and handoff expectations
 - `docs/AGENT_ROLES.md` for subagent roles, edit permissions, and routing
 - `docs/DOCS_POLICY.md` for documentation destinations and status rules
@@ -52,8 +54,9 @@ boundaries.
 ## Output Discipline
 
 - Lead with contradictions, missing decisions, and scope risks.
+- Challenge specs that violate `docs/ARCHITECTURE.md` seams or silently
+  introduce conflicting deferred work.
 - Keep findings grounded in file references where possible.
 - Do not write implementation details into `docs/CONTEXT.md`.
 - Do not batch unrelated terminology changes.
 - Include the trace path in the output.
-
