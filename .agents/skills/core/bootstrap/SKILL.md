@@ -17,6 +17,8 @@ backbone before normal milestone and spec work begins.
 4. `docs/DOCS_POLICY.md` (durable destinations)
 5. Current `docs/PRODUCT.md`, `docs/CONTEXT.md`, and `docs/ARCHITECTURE.md`
    (template state to replace)
+5. Current `docs/PRODUCT.md`, `docs/CONTEXT.md`, and `docs/ARCHITECTURE.md`
+   (template state to replace)
 
 ## Workflow
 
@@ -81,6 +83,13 @@ Bootstrap is blocked until the repo can answer, from docs or the user:
 - **where the MVP line lives** — what must the user experience end-to-end,
   and what is definitely post-MVP?
 - which durable constraints the rest of the workflows must respect
+Bootstrap is blocked until the repo can answer, from docs or the user:
+
+- who the product serves
+- what pain it solves
+- **where the MVP line lives** — what must the user experience end-to-end,
+  and what is definitely post-MVP?
+- which durable constraints the rest of the workflows must respect
 
 Unknown setup or verification commands are not always blockers, but they must
 be written down in `docs/CONTEXT.md` as maturity gaps instead of silently ignored.
@@ -102,6 +111,8 @@ Include:
 - the MVP boundary and derived architecture seams
 - settled product decisions
 - unresolved blockers
+- MVP milestone ladder paths and statuses
+- bare future milestone paths
 - MVP milestone ladder paths and statuses
 - bare future milestone paths
 - trace path
