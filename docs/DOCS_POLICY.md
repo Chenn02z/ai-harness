@@ -4,7 +4,9 @@ This document defines where durable project information belongs.
 
 ## Canonical Destinations
 
-- `README.md`: public overview.
+- `README.md`: public overview. Bootstrap rewrites the harness-template copy
+  into a project-specific public overview, but it does not become a second
+  product doc.
 - `user-journeys.html`: human-facing map of first-run paths and current product
   capabilities.
 - `docs/PRODUCT.md`: product intent, audience, scope, principles, and roadmap.
