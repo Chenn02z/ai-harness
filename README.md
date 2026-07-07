@@ -30,7 +30,8 @@ Solo and indie developers who want:
 ## Workflow Backbone
 
 1. Run `$bootstrap` immediately after forking to determine the MVP boundary,
-   derive architecture seams, and build an MVP milestone ladder.
+   derive architecture seams, build an MVP milestone ladder, and replace this
+   harness-template README with a project-specific public overview.
 2. Shape the first milestone with `$requirements`.
 3. Accept a milestone in `docs/milestones/` when scope is settled.
 4. Draft an implementation spec with `$spec`, referencing architecture seams.
@@ -69,16 +70,18 @@ Solo and indie developers who want:
 
 1. Start from this repo as a template.
 2. Run `$bootstrap` as the first real task after the fork.
-3. Answer the grilling session until `docs/PRODUCT.md`, `docs/CONTEXT.md`,
-   `docs/ARCHITECTURE.md`, project-local `AGENTS.md` details, and the MVP
-   milestone ladder are coherent.
-4. Shape and implement milestones one phase at a time. Run `plan-next` after
+3. Answer the grilling session until the product backbone is coherent, then
+   explicitly confirm the concrete bootstrap summary: MVP boundary, ordered
+   MVP milestone ladder, and explicit post-MVP cutoff.
+4. Let bootstrap tailor `README.md` into a project-specific public overview
+   while keeping deeper product detail in `docs/PRODUCT.md`.
+5. Shape and implement milestones one phase at a time. Run `plan-next` after
    each phase to propose the next increment.
-5. Use `user-journeys.html` at the repo root as the visual map of what the
+6. Use `user-journeys.html` at the repo root as the visual map of what the
    harness supports and what the intended developer paths are.
-6. Keep the workflow docs and agent presets strict unless you intentionally
+7. Keep the workflow docs and agent presets strict unless you intentionally
    change the harness rules.
-7. Add your application code beside this harness structure.
+8. Add your application code beside this harness structure.
 
 ## Non-Goals
 

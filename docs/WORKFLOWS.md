@@ -14,8 +14,10 @@ Workflow skills leave explicit handoff artifacts for the next skill.
 
 The harness supports phase-based incremental delivery:
 
-1. `$bootstrap` establishes the MVP boundary, derives architecture seams, and
-   builds an MVP milestone ladder.
+1. `$bootstrap` establishes the MVP boundary, derives architecture seams,
+   builds the MVP milestone ladder, presents a concrete summary for explicit
+   developer confirmation before durable writes, and rewrites `README.md`
+   into a project-specific public overview.
 2. Milestones are shaped and accepted through `$requirements`, then turned
    into specs and implemented through `$spec` and `$dev-loop`.
 3. When a phase is complete, the developer manually triggers `plan-next` to
@@ -48,8 +50,11 @@ that explicit or when the change is obviously local and reversible.
 Use `$bootstrap` when a newly forked repo still carries harness-template
 product language or has no coherent product backbone yet. Bootstrap establishes
 the MVP boundary, derives architecture seams, builds the MVP milestone ladder,
-and seeds bare future milestones. It may leave a Draft onboarding packet if
-blocking product questions remain unresolved.
+rewrites `README.md` into a project-specific public overview, and seeds bare
+future milestones. Before durable docs are written, bootstrap presents a
+concrete summary and gets explicit developer confirmation of the MVP boundary,
+ordered MVP milestone ladder, and explicit post-MVP cutoff. It may leave a
+Draft onboarding packet if blocking product questions remain unresolved.
 
 Do NOT attempt to fully design the whole product during bootstrap. Bare future
 milestones are intentionally sparse directional hints.

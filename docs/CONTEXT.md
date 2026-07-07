@@ -42,8 +42,10 @@ Canonical terminology and workflow boundaries. Keep implementation details out.
 - `requirement gathering`: vague intent to requirements packet or Accepted
   milestone.
 - `bootstrap`: first-run workflow that interrogates the developer, derives
-  architecture seams from the MVP boundary, and leaves either a Draft
-  onboarding packet or a product-ready starting point.
+  architecture seams from the MVP boundary, tailors `README.md` into a
+  project-specific public overview, and requires explicit developer
+  confirmation before durable bootstrap writes. The detailed confirmation
+  contract lives in `docs/WORKFLOWS.md`.
 - `spec grilling`: adversarial review before implementation.
 - `dev loop`: Accepted spec to verified, reviewed diff.
 - `context maintenance`: keeping docs, specs, skills, and agents aligned after
@@ -63,8 +65,9 @@ Canonical terminology and workflow boundaries. Keep implementation details out.
 ## Workflow Boundaries
 
 - Bootstrap: first serious workflow after forking when the repo still reflects
-  the harness template. Derives architecture seams from the MVP boundary,
-  builds the MVP milestone ladder, and seeds bare future milestones.
+  the harness template. It sets the MVP boundary, initial seams, and startup
+  docs, with explicit confirmation required before durable bootstrap writes.
+  The detailed bootstrap contract remains canonical in `docs/WORKFLOWS.md`.
 - Plan-next: triggered manually when a phase ships. Proposes the next phase
   with recommended milestone count and Draft milestones. Hands to
   `$requirements` only.

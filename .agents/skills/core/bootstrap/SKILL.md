@@ -46,9 +46,17 @@ backbone before normal milestone and spec work begins.
    and what's deferred, what lightweight boundaries (interfaces, hooks, config
    points) must exist so future features slot in without rewrites? Do NOT
    build speculative frameworks or fully design the whole product.
-9. If the answers are still fuzzy or contradictory, stop with a Draft onboarding
-   packet rather than pretending the product is ready.
-10. Delegate durable doc updates to `doc-curator`:
+9. Present a concrete bootstrap summary to the developer and require explicit
+   confirmation of:
+   - the MVP boundary
+   - the ordered MVP milestone ladder
+   - the explicit post-MVP cutoff
+10. If the answers are still fuzzy or contradictory, or the developer does not
+    confirm that summary, stop with a Draft onboarding packet rather than
+    pretending the product is ready.
+11. Delegate durable doc updates to `doc-curator`:
+    - rewrite `README.md` from harness-template copy into a project-specific
+      public overview
     - rewrite `docs/PRODUCT.md` for the real product
     - seed `docs/ARCHITECTURE.md` with current structure and approved seams
       derived from the MVP boundary
@@ -60,7 +68,7 @@ backbone before normal milestone and spec work begins.
     - seed **bare future milestones** (post-MVP) under `docs/milestones/` —
       title and one-line goal only. These are directional hints for
       `plan-next`, not commitments
-11. Hand the resulting workspace to `$requirements` when additional milestone
+12. Hand the resulting workspace to `$requirements` when additional milestone
     shaping is needed, or directly to `$spec` only when an Accepted milestone
     already exists.
 
@@ -79,6 +87,8 @@ be written down in `docs/CONTEXT.md` as maturity gaps instead of silently ignore
 
 Do NOT attempt to fully design the whole product. The MVP milestone ladder is
 the concrete deliverable path; bare future milestones are intentionally sparse.
+`README.md` remains a public overview; detailed product reasoning belongs in
+`docs/PRODUCT.md`.
 
 ## Output
 
@@ -87,6 +97,8 @@ Include:
 
 - onboarding status (`Draft` or `Accepted`)
 - changed doc paths (including `docs/ARCHITECTURE.md`)
+- whether the developer explicitly confirmed the MVP boundary, ordered MVP
+  milestone ladder, and explicit post-MVP cutoff before durable writes
 - the MVP boundary and derived architecture seams
 - settled product decisions
 - unresolved blockers
