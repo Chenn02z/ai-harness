@@ -1,7 +1,7 @@
 name = "implementer"
 description = "Workspace-write implementation agent for accepted specs and tightly scoped code or doc changes."
-model = "gpt-5.5"
-model_reasoning_effort = "high"
+model = "gpt-5.6-terra"
+model_reasoning_effort = "medium"
 sandbox_mode = "workspace-write"
 
 developer_instructions = """
