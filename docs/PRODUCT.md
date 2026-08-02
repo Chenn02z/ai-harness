@@ -20,14 +20,19 @@ not inside its core rules.
 - context docs that prevent terminology drift
 - generic templates for specs and milestones
 - architecture documentation and incremental phase planning
+- a planned local workflow observability milestone based on canonical
+  `.agent-trace` evidence
 
 ## Non-Goals For Now
 
 - runtime application code
-- deployment scaffolding
+- product deployment scaffolding (a local development-only Docker Compose
+  command for Phoenix is allowed by the planned observability milestone)
 - framework-specific project generators
 - domain-specific examples or sample products
 - team collaboration workflows beyond a single main agent coordinating subagents
+- hosted or live observability, custom observability UI, and provider-level LLM
+  capture
 
 ## Product Principles
 
@@ -73,5 +78,8 @@ not inside its core rules.
    `docs/`.
 6. Incremental delivery: `plan-next` proposes the next phase after a phase
    ships, using completed work to reshape future milestones.
-7. Domain adoption: each downstream product adds its own accepted milestones,
+7. Planned local workflow observability: the Accepted Local Workflow
+   Observability MVP is a roadmap item to project completed local traces into
+   Phoenix OSS without changing trace producers or canonical evidence.
+8. Domain adoption: each downstream product adds its own accepted milestones,
    specs, code, and docs without changing the shared harness by default.

@@ -31,6 +31,14 @@ Features or structural changes that are intentionally NOT built yet. Each
 entry names what is deferred, which milestone or phase it belongs to, and
 what seam (if any) was left open for it.
 
+- **Local Workflow Observability MVP — Accepted milestone**
+  (`docs/milestones/0001-local-workflow-observability.md`): approved deferred
+  work for a private JSONL-to-OTLP projection bridge, local Phoenix OSS, and a
+  local development-only Docker Compose command. It is not an existing code seam; child specs
+  are planned at `docs/specs/0001-trace-fact-and-privacy-contract.md`,
+  `0002-private-otlp-projection-bridge.md`, and
+  `0003-local-phoenix-observability-workflow.md`.
+
 ---
 
 *Template — replace during `$bootstrap`.*

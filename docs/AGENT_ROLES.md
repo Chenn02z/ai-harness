@@ -5,6 +5,8 @@ Project-scoped Codex agents live under `.codex/agents/`.
 The main agent owns judgment, reconciliation across subagent outputs, user
 interaction, and final reporting. Skills are the workflow layer;
 `.codex/agents/*.toml` are the concrete subagent presets those workflows invoke.
+The main agent is also the final integration and reconciliation owner for
+parallel work. Write-capable agents must receive disjoint file scopes.
 
 If a selected skill instructs the main agent to use a named project agent role,
 that skill instruction authorizes using that role as a scoped subagent for the
@@ -43,4 +45,3 @@ write scopes. `doc-curator` may edit docs and skill or agent rules when
 - Keep model/provider choices in agent config or explicit specs.
 - Do not use shell scripts as the orchestration brain.
 - Preserve user-owned worktree changes. Do not revert unrelated edits.
-

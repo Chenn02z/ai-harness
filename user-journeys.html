@@ -301,6 +301,7 @@
             <span class="chip">Specs</span>
             <span class="chip">Dev Loop</span>
             <span class="chip">Phase Replanning</span>
+            <span class="chip">Planned Observability</span>
           </div>
         </div>
         <div class="hero-side">
@@ -426,6 +427,22 @@
               <li>Use review artifacts like the product evaluation HTML to improve the next product-facing path.</li>
             </ul>
           </article>
+
+          <article class="journey">
+            <div class="journey-head">
+              <div>
+                <h3>8. Plan local workflow observability</h3>
+                <p>The developer wants a future visual projection of recorded workflow evidence without changing its source.</p>
+              </div>
+              <span class="status status-growing">Planned</span>
+            </div>
+            <ul>
+              <li>Plan for a normal workflow that produces <code>.agent-trace</code> JSONL.</li>
+              <li>Plan a one-shot import of only a completed trace ending in <code>trace_end</code> into local Phoenix OSS.</li>
+              <li>Plan inspection of delegation, reads, calls, edits, verification, reviews, and handoffs only when recorded.</li>
+              <li>Keep <code>.agent-trace</code> as canonical evidence; planned OTLP output is a privacy-filtered visualization projection.</li>
+            </ul>
+          </article>
         </div>
       </section>
 
@@ -471,6 +488,11 @@
             <span class="stage">Alignment</span>
             <h3>Keep context synchronized</h3>
             <p>Use <code>$context</code> to keep docs, skills, agent rules, README, and user-journeys.html coherent after decisions settle.</p>
+          </article>
+          <article class="capability">
+            <span class="stage">Planned</span>
+            <h3>Visualize local workflow evidence</h3>
+            <p>A planned milestone will project completed <code>.agent-trace</code> records through a private OTLP bridge into local Phoenix OSS, with strict allowlisting and no inferred facts.</p>
           </article>
         </div>
         <p class="callout">
